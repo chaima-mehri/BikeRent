@@ -92,17 +92,17 @@ class BikeController extends Controller
             ->where('bike.total','>=',$rent['quantity'])
             ->where('bike.id','=',$rent['bike_id'])
             
-            ->get();//yraje3lik il bike ella ella majoud w thajem tekreha 7asb il nombre elli 7addedtou 
+            ->get();
             if ($allbikes!='[]'){
                
-                array_push($total,$rent['bike_id']);//tlihoum fi table bech ta3ref enehi il bike ell aquentite te3ha a9al milli mawhjoud)
+                array_push($total,$rent['bike_id']);
             }
           
             
         }
        
        
-        foreach($total as $bikeunavailable){//assemi il bikes ella a9al mil mawjoud
+        foreach($total as $bikeunavailable){
             $allbikes=DB::table('bike')
             ->where('bike.id',$bikeunavailable)  
             ->select('bike.name')
